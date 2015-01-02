@@ -15,6 +15,6 @@ public class CameraControler : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
         Debug.Log(player.transform.position);
-        transform.position = player.transform.position + offset;
+        transform.position = player.transform.position + offset; // Quy tac hinh binh hanh cong hai vector.
 	}
 }
