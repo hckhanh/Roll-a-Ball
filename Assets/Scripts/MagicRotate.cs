@@ -6,7 +6,6 @@ public class MagicRotate : MonoBehaviour
 
     public Transform target;
     private bool rotateActivated = false;
-    public float radius;
 
     // Use this for initialization
     void Start()
@@ -28,7 +27,7 @@ public class MagicRotate : MonoBehaviour
 
         Quaternion currentRotate = transform.localRotation;
 
-        transform.localRotation = Quaternion.Slerp(currentRotate, rotation, radius * Time.deltaTime);
+        transform.localRotation = Quaternion.Slerp(currentRotate, rotation, Time.deltaTime);
         transform.Translate(0, 0, 3 * Time.deltaTime);
 
     }
