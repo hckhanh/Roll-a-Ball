@@ -5,6 +5,7 @@ public class TriggerEnter : MonoBehaviour
 {
 
     public MagicRotate magicCube;
+    public Animator animator;
 
     // Use this for initialization
     void Start()
@@ -22,8 +23,19 @@ public class TriggerEnter : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            magicCube.ActiveRotate();
+            //animator.enabled = false;
+            StartCoroutine(WaitAndCastMagic());
+            //magicCube.ActiveRotate();
         }
+    }
+
+    private IEnumerator WaitAndCastMagic()
+    {
+        //animator.SetTrigger(Animator.StringToHash("FlyUp"));
+        animator.SetTrigger("FlyUp");
+        yield return new WaitForSeconds(2.0f);
+        animator.enabled = false;
+        magicCube.ActiveRotate();
     }
 
 }
